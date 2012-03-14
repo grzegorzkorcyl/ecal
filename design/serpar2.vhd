@@ -110,27 +110,27 @@ end process;
       end if;
     end process;
 
-  process(SYS_CLOCK)
-    begin
-      if rising_edge(SYS_CLOCK) then
-    if (RESET = '1') then
-      fifo_write <= '0';
-    else
-       fifo_write <= (not RESET);
-    end if;
-      end if;
- end process;
+--  process(SYS_CLOCK)
+--    begin
+--      if rising_edge(SYS_CLOCK) then
+--    if (RESET = '1') then
+--      fifo_write <= '0';
+--    else
+--       fifo_write <= (not RESET);
+--    end if;
+--      end if;
+-- end process;
 
-  process(SYS_CLOCK)
-    begin
-      if rising_edge(SYS_CLOCK) then
-    if (RESET = '1') then
-      fifo_valid_read <= '0';
-    else
-       fifo_valid_read <= (not fifo_empty);
-    end if;
-      end if;
-    end process;
+--  process(SYS_CLOCK)
+--    begin
+--      if rising_edge(SYS_CLOCK) then
+--    if (RESET = '1') then
+--      fifo_valid_read <= '0';
+--    else
+--       fifo_valid_read <= (not fifo_empty);
+--    end if;
+--      end if;
+--    end process;
 
   process(ADC_CLOCK)
     begin

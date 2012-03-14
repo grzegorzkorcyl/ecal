@@ -360,6 +360,9 @@ BUF : data_buffer
 );
 end generate;
 
+-- workaround to readout only one data buffer instead of 8
+buffers_ready(7 downto 1) <= (others => '1');
+
 
 
 reset_buffers <= '1' when (write_state = EVENT_FINISHED)
