@@ -1,0 +1,162 @@
+COMMERCIAL ;
+BLOCK RESETPATHS ;
+BLOCK ASYNCPATHS ;
+BLOCK RD_DURING_WR_PATHS ;
+
+#####################################################################
+# Clocks
+#####################################################################
+
+FREQUENCY PORT CLK_100_IN 100.000000 MHz ;
+FREQUENCY PORT CLK_125_IN 125.000000 MHz ;
+
+# FREQUENCY PORT "ADCCLK_OUT_7"   20.000000 MHz ;
+# FREQUENCY PORT "ADCCLK_OUT_8"   20.000000 MHz ;
+# FREQUENCY PORT "ADCCLK_OUT_9"   20.000000 MHz ;
+# FREQUENCY PORT "ADCCLK_OUT_10"  20.000000 MHz ;
+# FREQUENCY PORT "ADCCLK_OUT_11"  20.000000 MHz ;
+# FREQUENCY PORT "ADCCLK_OUT_12"  20.000000 MHz ;
+
+FREQUENCY PORT "DCO_IN_7"   100.000000 MHz ;
+FREQUENCY PORT "DCO_IN_8"   100.000000 MHz ;
+FREQUENCY PORT "DCO_IN_9"   100.000000 MHz ;
+FREQUENCY PORT "DCO_IN_10"  100.000000 MHz ;
+FREQUENCY PORT "DCO_IN_11"  100.000000 MHz ;
+FREQUENCY PORT "DCO_IN_12"  100.000000 MHz ;
+
+PROHIBIT PRIMARY   NET "DCO_IN_c_7" ;
+PROHIBIT PRIMARY   NET "DCO_IN_c_8" ;
+PROHIBIT PRIMARY   NET "DCO_IN_c_9" ;
+PROHIBIT PRIMARY   NET "DCO_IN_c_10" ;
+PROHIBIT PRIMARY   NET "DCO_IN_c_11" ;
+PROHIBIT PRIMARY   NET "DCO_IN_c_12" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_7" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_8" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_9" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_10" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_11" ;
+PROHIBIT SECONDARY NET "DCO_IN_c_12" ;
+
+MULTICYCLE FROM CELL "THE_MEDIA_INTERFACE_0/THE_SFP_LSM/reset_me*" 20 ns;
+MULTICYCLE FROM CELL "THE_MEDIA_INTERFACE_0/THE_SFP_LSM/reset_me" 20 ns;
+MULTICYCLE FROM CELL "reset_i_fast_3" 20 ns;
+MULTICYCLE FROM CELL "reset_i" 20 ns;
+MULTICYCLE FROM CELL "reset_i*" 20 ns;
+
+
+#####################################################################
+# Input Timing
+#####################################################################
+
+DEFINE PORT GROUP "ADC7_INPUTS" "PRE_IN_17" "PRE_IN_18" "PRE_IN_19"
+                  "PRE_IN_20" "PRE_IN_21" "PRE_IN_22" "PRE_IN_23" "PRE_IN_24" ;
+INPUT_SETUP GROUP "ADC7_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_7" ;
+
+
+DEFINE PORT GROUP "ADC10_INPUTS" "PRE_IN_25" "PRE_IN_26" "PRE_IN_27"
+                  "PRE_IN_28" "PRE_IN_29" "PRE_IN_30" "PRE_IN_31" "PRE_IN_32" ;
+INPUT_SETUP GROUP "ADC10_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_10" ;
+
+
+DEFINE PORT GROUP "ADC8_INPUTS" "P1_IN_17" "P1_IN_18" "P1_IN_19"
+                  "P1_IN_20" "P1_IN_21" "P1_IN_22" "P1_IN_23" "P1_IN_24" ;
+INPUT_SETUP GROUP "ADC8_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_8" ;
+
+
+DEFINE PORT GROUP "ADC11_INPUTS" "P1_IN_25" "P1_IN_26" "P1_IN_27"
+                  "P1_IN_28" "P1_IN_29" "P1_IN_30" "P1_IN_31" "P1_IN_32" ;
+INPUT_SETUP GROUP "ADC11_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_11" ;
+
+
+DEFINE PORT GROUP "ADC9_INPUTS" "P2_IN_17" "P2_IN_18" "P2_IN_19"
+                  "P2_IN_20" "P2_IN_21" "P2_IN_22" "P2_IN_23" "P2_IN_24" ;
+INPUT_SETUP GROUP "ADC9_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_9" ;
+
+
+DEFINE PORT GROUP "ADC12_INPUTS" "P2_IN_25" "P2_IN_26" "P2_IN_27"
+                  "P2_IN_28" "P2_IN_29" "P2_IN_30" "P2_IN_31" "P2_IN_32" ;
+INPUT_SETUP GROUP "ADC12_INPUTS" 1.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_12" ;
+
+DEFINE PORT GROUP "ADC7_INP_FRAME" "FCO_IN_7"  ;
+INPUT_SETUP GROUP "ADC7_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_7" ;
+
+DEFINE PORT GROUP "ADC8_INP_FRAME" "FCO_IN_8"  ;
+INPUT_SETUP GROUP "ADC8_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_8" ;
+
+DEFINE PORT GROUP "ADC9_INP_FRAME" "FCO_IN_9"  ;
+INPUT_SETUP GROUP "ADC9_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_9" ;
+
+DEFINE PORT GROUP "ADC10_INP_FRAME" "FCO_IN_10"  ;
+INPUT_SETUP GROUP "ADC10_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_10" ;
+
+DEFINE PORT GROUP "ADC11_INP_FRAME" "FCO_IN_11"  ;
+INPUT_SETUP GROUP "ADC11_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_11" ;
+
+DEFINE PORT GROUP "ADC12_INP_FRAME" "FCO_IN_12"  ;
+INPUT_SETUP GROUP "ADC12_INP_FRAME" 2.500000 ns HOLD 1.500000 ns CLKPORT "DCO_IN_12" ;
+
+
+
+
+#####################################################################
+# Media Interfaces
+#####################################################################
+REGION "MED0" "R9C82" 10 12;
+
+LOCATE COMP   "THE_MEDIA_INTERFACE_0/gen_serdes_0_THE_SERDES/PCSC_INST" SITE "URPCS" ;
+LOCATE UGROUP "THE_MEDIA_INTERFACE_0/media_interface_group" REGION "MED0" ;
+
+
+#####################################################################
+# Locate serpar
+#####################################################################
+#REGION "region_serpar_6" "R65C8"  10 16;
+#REGION "region_serpar_7" "R57C2"  13 10;
+#REGION "region_serpar_8" "R41C2"  13 12;
+#REGION "region_serpar_9" "R6C2"   13 12;
+#REGION "region_serpar_10" "R11C90" 14 11;
+#REGION "region_serpar_11" "R29C90" 14 11;
+
+REGION "region_serpar_6" "R67C2"  8 8;
+#REGION "region_serpar_7" "R57C2"  8 8;
+#REGION "region_serpar_8" "R48C2"  8 8;
+#REGION "region_serpar_9" "R2C2"   8 8;
+#REGION "region_serpar_10" "R11C94" 8 7;
+#REGION "region_serpar_11" "R33C94" 7 7;
+
+LOCATE UGROUP "gen_read_ADC_0_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_6" ;
+LOCATE UGROUP "gen_read_ADC_1_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_7" ;
+LOCATE UGROUP "gen_read_ADC_2_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_8" ;
+LOCATE UGROUP "gen_read_ADC_3_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_9" ;
+LOCATE UGROUP "gen_read_ADC_4_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_10" ;
+LOCATE UGROUP "gen_read_ADC_5_THE_ADC_READ/ADC/ADC_serpar_group" REGION "region_serpar_11" ;
+
+#REGION "region_adc_6" "R55C24"  19 26;
+#REGION "region_adc_7" "R41C15"  18 25;
+#REGION "region_adc_8" "R26C2"  14 25;
+#REGION "region_adc_9" "R2C16"  15 24;
+#REGION "region_adc_10" "R23C62"  14 27;
+#REGION "region_adc_11" "R49C75"  18 25;
+
+REGION "region_adc_6" "R57C6"  30 40;
+#REGION "region_adc_7" "R41C6"  16 40;
+#REGION "region_adc_8" "R23C2"  18 34;
+#REGION "region_adc_9" "R2C6"  20 34;
+ #REGION "region_adc_10" "R23C62"  18 34;
+ #REGION "region_adc_10" "R19C70"  22 31;
+#REGION "region_adc_10" "R2C40"  20 34;
+ #REGION "region_adc_11" "R42C75"  26 26;
+#REGION "region_adc_11" "R52C44"  23 30;
+
+LOCATE UGROUP "gen_read_ADC_0_THE_ADC_READ/ADC_chip" REGION "region_adc_6" ;
+LOCATE UGROUP "gen_read_ADC_1_THE_ADC_READ/ADC_chip" REGION "region_adc_7" ;
+LOCATE UGROUP "gen_read_ADC_2_THE_ADC_READ/ADC_chip" REGION "region_adc_8" ;
+LOCATE UGROUP "gen_read_ADC_3_THE_ADC_READ/ADC_chip" REGION "region_adc_9" ;
+LOCATE UGROUP "gen_read_ADC_4_THE_ADC_READ/ADC_chip" REGION "region_adc_10" ;
+LOCATE UGROUP "gen_read_ADC_5_THE_ADC_READ/ADC_chip" REGION "region_adc_11" ;
+
+
+#THE_ENDPOINT/THE_ENDPOINT/genbu
+
+LOCATE COMP "RESET_IN" SITE "A15"; #async reset trick
+IOBUF PORT "RESET_IN" IO_TYPE=LVTTL33 PULLMODE=UP;

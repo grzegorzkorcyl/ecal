@@ -1,0 +1,31 @@
+SCUBA, Version ispLever_v8.0_PROD_Build (41)
+Wed Apr 21 09:21:16 2010
+  
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2009 Lattice Semiconductor Corporation,  All rights reserved.
+  
+BEGIN SCUBA Module Synthesis
+  
+    Issued command   : /opt/lattice/ispLEVER8.0/isptools/ispfpga/bin/lin/scuba -w -n pedestal_DPRAM_32x16 -lang vhdl -synth synplify -bus_exp 7 -bb -arch ep5m00 -device LFE2M50E -type ramdps -raddr_width 5 -rwidth 16 -waddr_width 5 -wwidth 16 -rnum_words 32 -wnum_words 32 -resetmode SYNC -cascade -1 -e 
+    Circuit name     : pedestal_DPRAM_32x16
+    Module type      : RAM_DP
+    Module Version   : 6.1
+    Ports            : 
+    Inputs       : WrAddress[4:0], RdAddress[4:0], Data[15:0], WE, RdClock, RdClockEn, Reset, WrClock, WrClockEn
+    Outputs      : Q[15:0]
+    I/O buffer       : not inserted
+    EDIF output      : suppressed
+    VHDL output      : pedestal_DPRAM_32x16.vhd
+    VHDL template    : pedestal_DPRAM_32x16_tmpl.vhd
+    VHDL testbench   : tb_pedestal_DPRAM_32x16_tmpl.vhd
+    VHDL purpose     : for synthesis and simulation
+    Bus notation     : big endian
+    Report output    : pedestal_DPRAM_32x16.srp
+    Estimated Resource Usage:
+            EBR : 1
+  
+END   SCUBA Module Synthesis
+

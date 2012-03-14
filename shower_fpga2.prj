@@ -1,0 +1,160 @@
+#-- Synplicity, Inc.
+#-- Version 9.0
+#-- Project file shower_fpga2.prj
+#-- Written on 2010.02.10
+
+#add_file options
+
+add_file -vhdl -lib work "version.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_std.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_components.vhd"
+
+#Shower design files
+add_file -vhdl -lib work "design/start2.vhd"
+add_file -vhdl -lib work "design/shw_debug.vhd"
+add_file -vhdl -lib work "design/shower_components.vhd"
+add_file -vhdl -lib work "design/read_ADC.vhd"
+add_file -vhdl -lib work "design/FEB_engine.vhd"
+add_file -vhdl -lib work "design/display.vhd"
+add_file -vhdl -lib work "design/program_ADC.vhd"
+add_file -vhdl -lib work "design/serpar2.vhd"
+add_file -vhdl -lib work "design/shower_spi_adc_master.vhd"
+add_file -vhdl -lib work "design/shower_spi_real_slim.vhd"
+add_file -vhdl -lib work "design/data_buffer.vhd"
+
+add_file -vhdl -lib work "ipcores/spyFifo.vhd"
+add_file -vhdl -lib work "ipcores/ddr_input_ff.vhd"
+add_file -vhdl -lib work "ipcores/pedestal_DPRAM_32x16.vhd"
+add_file -vhdl -lib work "ipcores/ddr_iff_sysclk.vhd"
+add_file -vhdl -lib work "ipcores/ddr_generic.vhd"
+add_file -vhdl -lib work "ipcores/fifo_af_dc_18x8.vhd"
+add_file -vhdl -lib work "ipcores/pll_in100_out10.vhd"
+add_file -vhdl -lib work "ipcores/fifo_1kx18.vhd"
+add_file -vhdl -lib work "ipcores/substractor.vhd"
+
+
+add_file -vhdl -lib work "../trbnet/optical_link/f_divider.vhd"
+
+#TrbNet
+add_file -vhdl -lib work "../trbnet/trb_net_sbuf5.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_sbuf6.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_term_buf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_CRC.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_onewire.vhd"
+add_file -vhdl -lib work "../trbnet/basics/pulse_stretch.vhd"
+add_file -vhdl -lib work "../trbnet/basics/rom_16x8.vhd"
+add_file -vhdl -lib work "../trbnet/basics/ram.vhd"
+add_file -vhdl -lib work "../trbnet/basics/ram_16x8_dp.vhd"
+add_file -vhdl -lib work "../trbnet/basics/ram_16x16_dp.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_addresses.vhd"
+add_file -vhdl -lib work "../trbnet/basics/ram_dp.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_term.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_sbuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_sbuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_regIO.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_regio_bus_handler.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_priority_encoder.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_dummy_fifo.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_dummy_fifo.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_term_ibuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_priority_arbiter.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_pattern_gen.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_obuf_nodata.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_obuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_ibuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_api_base.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_iobuf.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_io_multiplexer.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_trigger.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_ipudata.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_endpoint_hades_full.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net_onewire_listener.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/pll_in100_out20.vhd"
+add_file -vhdl -lib work "../trbnet/basics/signal_sync.vhd"
+add_file -vhdl -lib work "../trbnet/basics/ram_dp_rw.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/lattice_ecp2m_fifo_18x1k.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/trb_net16_fifo_arch.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/lattice_ecp2m_fifo_16bit_dualport.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/trb_net_fifo_16bit_bram_dualport.vhd"
+add_file -vhdl -lib work "../trbnet/special/spi_master.vhd"
+add_file -vhdl -lib work "../trbnet/special/spi_slim.vhd"
+add_file -vhdl -lib work "../trbnet/special/spi_databus_memory.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/spi_dpram_32_to_8.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/ddr_off.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo_dualclock_width_16_reg.vhd"
+add_file -vhdl -lib work "../trbnet/media_interfaces/trb_net16_lsm_sfp.vhd"
+add_file -vhdl -lib work "../trbnet/media_interfaces/ecp2m_sfp/serdes_gbe_0.vhd"
+add_file -vhdl -lib work "../trbnet/media_interfaces/trb_net16_med_ecp_sfp_gbe.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/pll_in100_out100.vhd"
+
+add_file -vhdl -lib work "../trbnet/special/handler_data.vhd"
+add_file -vhdl -lib work "../trbnet/special/handler_ipu.vhd"
+add_file -vhdl -lib work "../trbnet/special/handler_lvl1.vhd"
+add_file -vhdl -lib work "../trbnet/special/handler_trigger_and_data.vhd"
+add_file -vhdl -lib work "../trbnet/trb_net16_endpoint_hades_full_handler.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/lattice_ecp2m_fifo.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x256_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x512_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x1k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x2k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x4k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x8k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x16k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_36x32k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_18x256_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_18x512_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_18x1k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_18x2k_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_var_oreg.vhd"
+add_file -vhdl -lib work "../trbnet/lattice/ecp2m/fifo/fifo_19x16_obuf.vhd"
+
+add_file -vhdl -lib work "shower_fpga2.vhd"
+
+
+
+#implementation: "workdir"
+impl -add workdir -type fpga
+
+
+#device options
+set_option -technology LATTICE-ECP2M
+set_option -part LFE2M50E
+set_option -package F900C
+set_option -speed_grade -5
+
+#compilation/mapping options
+set_option -default_enum_encoding sequential
+set_option -symbolic_fsm_compiler 1
+#set_option -resource_sharing 0
+set_option -top_module "shower_fpga2"
+
+#map options
+set_option -frequency 100
+set_option -fanout_limit 100
+set_option -disable_io_insertion 0
+set_option -retiming 0
+set_option -pipe 0
+set_option -force_gsr auto
+set_option -fixgatedclocks 3
+set_option -fixgeneratedclocks 3
+
+
+
+#simulation options
+set_option -write_verilog 0
+set_option -write_vhdl 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 0
+
+#set result format/file last
+project -result_format "edif"
+project -result_file "workdir/shower_fpga2.edf"
+
+
+#
+#implementation attributes
+
+set_option -vlog_std v2001
+set_option -project_relative_includes 1
+impl -active "workdir"

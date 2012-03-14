@@ -1,0 +1,29 @@
+#####################################################################
+# Clocks
+#####################################################################
+
+FREQUENCY PORT CLK_100_IN 100.000000 MHz ;
+FREQUENCY PORT CLK_125_IN 125.000000 MHz ;
+
+#####################################################################
+# Regions
+#####################################################################
+REGION "MED0" "R9C75" 18 26;
+REGION "REGIO_Region" "R2C2" 20 40 ;
+
+#####################################################################
+# Media Interfaces
+#####################################################################
+LOCATE COMP   "THE_MEDIA_INTERFACE/gen_normal_serdes_THE_SERDES/PCSC_INST" SITE "URPCS" ;
+LOCATE UGROUP "THE_MEDIA_INTERFACE/media_interface_group" REGION "MED0" ;
+
+LOCATE UGROUP "gen_normal_hub_THE_HUB/hub_control/RegIO_group" REGION "REGIO_Region" ;
+LOCATE UGROUP "gen_normal_hub_THE_HUB/gen_ctrl_api_CTRL_API/API_group" REGION "REGIO_Region" ;
+LOCATE UGROUP "gen_ethernet_hub_THE_HUB/hub_control/RegIO_group" REGION "REGIO_Region" ;
+LOCATE UGROUP "gen_ethernet_hub_THE_HUB/gen_ctrl_api_CTRL_API/API_group" REGION "REGIO_Region" ;
+LOCATE UGROUP "THE_SPI_MASTER/SPI_group" REGION "REGIO_Region" ;
+LOCATE UGROUP "THE_BUS_HANDLER/Bus_handler_group" REGION "REGIO_Region" ;
+
+
+MULTICYCLE FROM CELL "gen_normal_hub_THE_HUB/proc_SYNC_RESET_reset_i" 20 ns ;
+MULTICYCLE FROM CELL "gen_ethernet_hub_THE_HUB/proc_SYNC_RESET_reset_i" 20 ns ;
