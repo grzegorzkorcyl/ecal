@@ -103,13 +103,13 @@ architecture shower_fpga1_arch of shower_fpga1 is
 
  --Clock and Reset
   signal clk_100                 : std_logic;
-  signal clk_10                  : std_logic;
+  signal clk_20                  : std_logic;
   signal clk_en                  : std_logic;
   signal reset_i                 : std_logic;
   signal reset_i_q               : std_logic;
   signal reset_counter           : unsigned (19 downto 0);
   signal pll_locked              : std_logic;
-  signal pll_10_locked           : std_logic;
+  signal pll_20_locked           : std_logic;
   signal make_reset_via_network  : std_logic;
 
   --endpoint RegIo to bus handler
@@ -363,7 +363,7 @@ end process SYNC_PROC;
 -- Clock & Reset state machine
 ---------------------------------------------------------------------------
   clk_en                 <= '1';
-  reset_i_q              <= not pll_10_locked or not pll_locked ;
+  reset_i_q              <= not pll_20_locked or not pll_locked ;
   make_reset_via_network <= MED_STAT_OP(0*16 + 13);
 
   THE_PLL : pll_in100_out100
@@ -391,14 +391,14 @@ end process SYNC_PROC;
   THE_PLL_20: pll_in100_out20
     port map (
       CLK      => CLK_100_IN,
-      CLKOP    => clk_10,
-      LOCK     => pll_10_locked
+      CLKOP    => clk_20,
+      LOCK     => pll_20_locked
       );
 
 
-THE_RESET_COUNTER_PROC: process( RESET_IN, pll_10_locked, pll_locked, CLK_100_IN )
+THE_RESET_COUNTER_PROC: process( RESET_IN, pll_20_locked, pll_locked, CLK_100_IN )
 begin
-  if( (pll_10_locked = '0') or (pll_locked = '0') or (RESET_IN = '0') ) then
+  if( (pll_20_locked = '0') or (pll_locked = '0') or (RESET_IN = '0') ) then
     reset_counter <= (others => '0');
     reset_i       <= '1';
   elsif( rising_edge(CLK_100_IN) ) then
@@ -427,7 +427,7 @@ end process THE_RESET_COUNTER_PROC;
     port map (
         DA => '1',
         DB => '0',
-        clk => clk_10,
+        clk => clk_20,
         rst =>  '0', --reset_i,
         Q => adc_clk_out_v(i)
         );
