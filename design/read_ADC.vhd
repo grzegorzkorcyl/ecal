@@ -336,7 +336,7 @@ ADC: serpar2 port map (
     );
 
 -- gk 21.12.10
-buffers_gen : for i in 0 to 7 generate
+buffers_gen : for i in 0 to 0 generate
 BUF : data_buffer
     port map (
       RESET           => RESET,
